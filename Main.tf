@@ -33,7 +33,7 @@ resource "aws_security_group" "Project-SG" {
 resource "aws_instance" "web" {
   ami                    = "ami-001f2488b35ca8aad"
   instance_type          = "t2.large"
-  key_name               = "Kastro"
+  key_name               = "peer1"
   vpc_security_group_ids = [aws_security_group.Project-SG.id]
   user_data              = templatefile("./resource.sh", {})
 
@@ -41,6 +41,6 @@ resource "aws_instance" "web" {
     Name = "Kastro"
   }
   root_block_device {
-    volume_size = 30
+    volume_size = 28
   }
 }
